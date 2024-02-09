@@ -1,4 +1,4 @@
-#include <iostream>
+#include<iostream>
 #include<string>
 
 class Flight{
@@ -8,35 +8,49 @@ class Flight{
         float distance;
         float fuel;
         
-
-
     public:
-        Flight( int number,const std::string& dest , float dist): flightNumber(number),destination(dest),distance(dist),fuel(0){}
+        Flight():flightNumber(0),distance(0),fuel(0){}
+        //public member function to enter the flight information
         
-    //Member function tho calculate the fuel based on distance
+    void FEEDINFO(){
+        std::cout<< "Enter the flight number";
+        std::cin>> flightNumber;
+        
+        std::cout<< "Enter Destination";
+        std::cin.ignore();
+        std::getline(std::cin, destination);
+        
+        std::cout<< "Enter the distance in km";
+        std::cin>> distance;
+        CALFUEL();
+    }
+    
+    void SHOWINFO(){
+        std::cout<< "Flight Information"<<std::endl;
+        std::cout<< "Flight Number"<< flightNumber << std::endl;
+        std::cout<< "destination"<< destination << std::endl;  std::cout<< "Distance"<< distance << std::endl;
+        std::cout<< "fuel"<< fuel << std::endl;
+        
+        
+        
+    }
+    private:
     void CALFUEL(){
-        if(distance<=1000){
+        if(distance>1000){
             fuel=500;
-        } else if(distance>1000 && distance<2000){
-            fuel =1100;
+        } else if (distance>1000 && distance<2000){
+            fuel = 1100;
             
-        } else if(distance>2000){
+        } else if (distance>2000){
             fuel = 2200;
         }
     }
-    
-    void displayDetails(){
-        std::cout<<"The flight number is :"<< flightNumber << std::endl;
-        std::cout<<"The destination is :"<< destination <<
-        std::endl;
-        std::cout<< "the distravelled is :"<< distance << "km" << std::endl;
-        std::cout<<"the fuel is :"<< fuel << "litres" << std::endl;
-    }
+        
 };
 
 int main(){
-    Flight flight1(747, "Kokata" , 1500 );
-    flight1.CALFUEL();
-    flight1.displayDetails();
+    Flight flight1;
+    flight1.FEEDINFO();
+    flight1.SHOWINFO();
     return 0;
 }
