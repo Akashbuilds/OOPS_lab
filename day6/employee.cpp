@@ -36,7 +36,7 @@ void Hod::show_details(){
     cout<<"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"<<endl<<endl;
 }
 void Hod::enhance_sal(Employee &ob, int x){
-    ob.salary=x;
+    ob.salary+=x;
 }
 int main(){
     Employee e1("Mike","Junior Associate","Civil Law",1001,100000), e2("Harvey","Senior partner","Civil Law",3001,500000);
