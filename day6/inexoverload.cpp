@@ -13,7 +13,7 @@ public:
 
 Matrix::Matrix(int r, int c)
 {
-    this->r = r;
+    this->r = r; 
     this->c = c;
     arr = new int *[r];
     for (int i = 0; i < r; i++)
